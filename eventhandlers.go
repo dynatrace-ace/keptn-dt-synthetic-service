@@ -92,7 +92,7 @@ func SyntheticCloudEventHandler(myKeptn *keptnv2.Keptn, incomingEvent cloudevent
 		return err
 	}
 
-	u, err := url.Parse(fmt.Sprintf("https://%s", os.Getenv("DT_TENANT")))
+	u, err := url.Parse(os.Getenv("DT_TENANT"))
 	if err != nil {
 		errMsg := fmt.Sprint("Failed to parse DT_TENANT from environment, aborting...", err.Error())
 		log.Println(errMsg)

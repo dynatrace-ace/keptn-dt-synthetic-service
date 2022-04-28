@@ -3,7 +3,7 @@ dtSecret: dynatrace
 image:
   repository: dynatraceace/keptn-dt-synthetic-service
   pullPolicy: Always                         # Kubernetes Image Pull Policy
-  tag: "0.0.1"                               # Container Tag
+  tag: "0.0.2"                               # Container Tag
 service:
   enabled: true                              # Creates a Kubernetes Service for the keptn-service-template-go
 
