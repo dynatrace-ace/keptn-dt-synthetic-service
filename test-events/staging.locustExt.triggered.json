@@ -1,0 +1,11 @@
+{
+  "data": {
+    "project": "sockshop",
+    "service": "carts",
+    "stage": "staging"
+  },
+  "source": "test-events",
+  "specversion": "1.0",
+  "type": "sh.keptn.event.staging.locustExt.triggered",
+  "id": "f2b878d3-03c0-4e8f-bc3f-454bc1b3d79b"
+}
