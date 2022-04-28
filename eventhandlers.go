@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -110,6 +111,11 @@ func SyntheticCloudEventHandler(myKeptn *keptnv2.Keptn, incomingEvent cloudevent
 
 	executeUrl := u.String()
 	dtApiToken := os.Getenv("DT_API_TOKEN")
+
+	isInsecureSkipTlsVerify := os.Getenv("INSECURE_SKIP_TLS_VERIFY")
+	if isInsecureSkipTlsVerify == "1" || isInsecureSkipTlsVerify == "true" {
+		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	}
 
 	req, err := http.NewRequest("POST", executeUrl, bytes.NewBuffer(jsonData))
 	if err != nil {

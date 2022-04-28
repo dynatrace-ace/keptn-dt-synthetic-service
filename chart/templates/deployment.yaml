@@ -59,6 +59,8 @@ spec:
                 name: {{ .Values.dtSecret }}
                 key: DT_API_TOKEN
                 optional: false
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "{{ .Values.insecureSkipTlsVerify }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         - name: distributor
